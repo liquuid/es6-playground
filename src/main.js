@@ -1,3 +1,5 @@
+import { soma as somaFunction, sub } from './funcoes';
+
 class List {
     constructor() {
         this.data = [];
