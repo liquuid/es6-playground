@@ -1,31 +1,12 @@
-import { soma as somaFunction, sub } from './funcoes';
+import axios from 'axios';
 
-class List {
-    constructor() {
-        this.data = [];
-    }
-
-    add(data) {
-        this.data.push(data);
-        console.log(this.data);
+class Api {
+    static async getUserInfo(username) {
+        const response = await axios.get(`https://api.github.com/users/${username}`);
+        
+    } catch (err) {
+        console.warn("Erro na api");
     }
 }
 
-class TodoList extends List {
-    constructor(){
-        super();
-        this.usuario = "User1";
-    }
-    mostraUsuario(){
-        console.log(this.usuario);
-    }
-
-}
-
-var MinhaLista = new TodoList();
-
-document.getElementById('novotodo').onclick = function(){
-    MinhaLista.add('novo todo');
-
-}
-MinhaLista.mostraUsuario();
+Api.getUserInfo('liquuid');
